@@ -2,6 +2,9 @@ package model;
 
 import java.awt.Point;
 
+/**
+ * Gestion des déplacements horizontaux des éléments mobiles
+ */
 public class DeplHorizontal extends DeplacementBalise {
 	Integer start;
 	Integer end;

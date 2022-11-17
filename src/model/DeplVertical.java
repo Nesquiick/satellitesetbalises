@@ -2,6 +2,9 @@ package model;
 
 import java.awt.Point;
 
+/**
+ * Gestion des déplacements verticaux des éléments mobiles
+ */
 public class DeplVertical extends DeplacementBalise  {
 	Integer min;
 	Integer max;

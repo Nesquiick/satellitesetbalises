@@ -1,5 +1,5 @@
 package events;
 
 public interface SatelitteMoveListener {
-	public void whenSatelitteMoved(SatelliteMoved arg);
+	void whenSatelitteMoved(SatelliteMoved arg);
 }

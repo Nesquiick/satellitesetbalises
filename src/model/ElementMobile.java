@@ -21,11 +21,11 @@ public class ElementMobile {
 		this.position = new Point(0, 0);
 	}
 
-	public int dataSize() {
+	public int getDataSize() {
 		return this.dataSize;
 	}
 
-	public int memorySize() {
+	public int getMemorySize() {
 		return this.memorySize;
 	}
 
@@ -35,7 +35,6 @@ public class ElementMobile {
 	
 	public void setManager(Manager manager) {
 		this.manager = manager;
-		
 	}
 	
 	protected void resetData() {
@@ -46,7 +45,6 @@ public class ElementMobile {
 		return (this.dataSize >= this.memorySize);
 	}
 
-	// enregistrement des listeners
 	public void registerListener(Class<? extends AbstractEvent> whichEventType, Object listener) {
 		eventHandler.registerListener(whichEventType, listener);
 	}
@@ -55,7 +53,6 @@ public class ElementMobile {
 		eventHandler.unregisterListener(whichEventType, listener);
 	}
 
-	// envoi des evenements
 	public void send(AbstractEvent event) {
 		eventHandler.send(event);
 	}
