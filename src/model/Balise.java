@@ -12,11 +12,22 @@ public class Balise extends ElementMobile implements SatelitteMoveListener{
 	public int profondeur() { 
 		return this.getPosition().y; 
 	}
-	
+
+
+	/**
+	 * Tant que la balise n'est pas à la surface et que sa mémoire n'est pas pleine,
+	 * la balise récolte des données
+	 */
 	protected void readSensors() {
-		this.dataSize++;
+		if(this.profondeur() > 0 && !this.memoryFull()) {
+			this.dataSize++;
+		}
 	}
-	
+
+	/**
+	 * Recolte les données et si la mémoire est pleine,
+	 * la balise remonte pour transferer ses données au satellite et sa mémoire est réinitialisée
+	 */
 	public void tick() {
 		this.readSensors();
 		if (this.memoryFull()) {
@@ -25,7 +36,7 @@ public class Balise extends ElementMobile implements SatelitteMoveListener{
 			Deplacement nextDepl = new MonteSurfacePourSynchro(deplSynchro);
 			this.setDeplacement(nextDepl);
 			this.resetData();
-		} 
+		}
 		super.tick();
 	}
 
@@ -34,6 +45,4 @@ public class Balise extends ElementMobile implements SatelitteMoveListener{
 		DeplacementBalise dp = (DeplacementBalise) this.depl;
 		dp.whenSatelitteMoved(arg, this);
 	}
-
-
 }

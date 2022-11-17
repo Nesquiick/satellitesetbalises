@@ -1,13 +1,17 @@
 package model;
 
 import java.awt.Point;
+import java.util.Random;
 
 public class Redescendre extends DeplacementBalise {
 	int profondeur;
 	
 	public Redescendre(Deplacement next, int profondeur) {
 		super (next);
-		this.profondeur = profondeur;
+		//this.profondeur = profondeur;
+		// Modification ici
+		Random r = new Random();
+		this.profondeur = r.nextInt(270);
 	}
 	
 	@Override

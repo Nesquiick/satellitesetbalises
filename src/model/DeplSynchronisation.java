@@ -19,7 +19,7 @@ public class DeplSynchronisation extends DeplacementBalise {
 	
 	@Override
 	public void whenSatelitteMoved(SatelliteMoved arg, Balise target) {
-		if (this.synchro != null) return;
+		if (synchroStarted()) return;
 		Satellite sat = (Satellite) arg.getSource();
 		int satX = sat.getPosition().x;
 		int tarX = target.getPosition().x;
@@ -27,6 +27,9 @@ public class DeplSynchronisation extends DeplacementBalise {
 			this.synchro = sat;
 			target.send(new SynchroEvent(this));
 			this.synchro.send(new SynchroEvent(this));
+		}
+		if(synchroStarted()){
+			sat.addData(target.memorySize);
 		}
 	}
 
@@ -42,6 +45,6 @@ public class DeplSynchronisation extends DeplacementBalise {
 			sat.send(new SynchroEvent(this));
 			target.getManager().baliseSynchroDone(target);
 			target.setDeplacement(next);
-		}		
+		}
 	}
 }
