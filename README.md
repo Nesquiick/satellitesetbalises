@@ -22,7 +22,7 @@ Nous avons ajouté un bouton afin de pouvoir pauser l'animation
 ###Affichage des données
 Nous avons ajouté un label afin d'afficher la quantité de données contenue par les satellites
 
-###Commentaires
+###JAVADOC
 
 ###Documentation
 

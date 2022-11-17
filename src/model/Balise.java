@@ -25,17 +25,18 @@ public class Balise extends ElementMobile implements SatelitteMoveListener{
 	}
 
 	/**
-	 * Recolte les données et si la mémoire est pleine,
-	 * la balise remonte pour transferer ses données au satellite et sa mémoire est réinitialisée
+	 * Recolte les données et si la mémoire est pleine, la balise remonte pour transferer ses données
+	 * au satellite et sa mémoire est réinitialisée
 	 */
 	public void tick() {
-		this.readSensors();
 		if (this.memoryFull()) {
 			Deplacement redescendre = new Redescendre(this.deplacement(), this.profondeur());
 			Deplacement deplSynchro = new DeplSynchronisation(redescendre);
 			Deplacement nextDepl = new MonteSurfacePourSynchro(deplSynchro);
 			this.setDeplacement(nextDepl);
 			this.resetData();
+		} else {
+			this.readSensors();
 		}
 		super.tick();
 	}

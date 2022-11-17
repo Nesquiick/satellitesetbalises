@@ -115,6 +115,9 @@ public class Simulation {
 		return grAntenne;
 	}
 
+	/**
+	 * Ajout des éléments graphiques au monde
+	 */
 	public void launch() {
 		JLayeredPane main = new JLayeredPane();
 		main.setOpaque(true);

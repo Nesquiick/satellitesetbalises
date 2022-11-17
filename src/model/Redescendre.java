@@ -8,8 +8,6 @@ public class Redescendre extends DeplacementBalise {
 	
 	public Redescendre(Deplacement next, int profondeur) {
 		super (next);
-		//this.profondeur = profondeur;
-		// Modification ici
 		Random r = new Random();
 		this.profondeur = r.nextInt(270);
 	}

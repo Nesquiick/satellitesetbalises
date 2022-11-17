@@ -7,7 +7,11 @@ public class MonteSurfacePourSynchro extends DeplacementBalise {
 	public MonteSurfacePourSynchro(Deplacement next) {
 		super (next);
 	}
-		
+
+	/**
+	 * Fait remonter la balise à la surface (y = 0)
+	 * Une fois cela fait, la balise est prête pour la synchronisation
+	 */
 	@Override
 	public void bouge(ElementMobile target) {
 		Point p = target.getPosition();

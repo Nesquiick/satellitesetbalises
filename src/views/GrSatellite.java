@@ -36,8 +36,8 @@ public class GrSatellite extends GrElementMobile {
 	@Override
 	public void whenPositionChanged(PositionChanged arg) {
 		this.setLocation(this.model.getPosition());
-		if(!String.valueOf(this.model.dataSize()).equals(label.getText())){
-			label.setText(String.valueOf(this.model.dataSize()));
+		if(!String.valueOf(this.model.getDataSize()).equals(label.getText())){
+			label.setText(String.valueOf(this.model.getDataSize()));
 		}
 		this.repaint();
 	}

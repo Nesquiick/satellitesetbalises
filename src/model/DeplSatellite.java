@@ -2,6 +2,9 @@ package model;
 
 import java.awt.Point;
 
+/**
+ * Déplacements horizontaux des satellites en fonction d'une vitesse donnée
+ */
 public class DeplSatellite extends Deplacement {
 	Integer start;
 	Integer end;
