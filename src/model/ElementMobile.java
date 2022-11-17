@@ -7,18 +7,22 @@ import eventHandler.EventHandler;
 import events.PositionChanged;
 
 public class ElementMobile {
-	Deplacement depl;
-	Point position;
-	EventHandler eventHandler;
-	int memorySize;
-	int dataSize;
-	Manager manager;
+	private Deplacement depl;
+	private Point position;
+	private final EventHandler eventHandler;
+	private final int memorySize;
+	private int dataSize;
+	private Manager manager;
 
 	public ElementMobile(int memorySize) {
 		eventHandler = new EventHandler();
 		this.memorySize = memorySize;
 		this.dataSize = 0;
 		this.position = new Point(0, 0);
+	}
+
+	public void setDataSize(int dataSize){
+		this.dataSize = dataSize;
 	}
 
 	public int getDataSize() {

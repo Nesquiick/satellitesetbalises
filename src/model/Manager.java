@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import events.SatelliteMoved;
 
 public class Manager {
-	ArrayList<Satellite> sats = new ArrayList<Satellite>();
-	ArrayList<Balise> bals = new ArrayList<Balise>();
-	Antenne antenne;
+	private ArrayList<Satellite> sats = new ArrayList<Satellite>();
+	private ArrayList<Balise> bals = new ArrayList<Balise>();
+	private Antenne antenne;
 	
 	public void addBalise(Balise bal) {
 		bals.add(bal);
@@ -20,6 +20,7 @@ public class Manager {
 	public void addAntenne(Antenne antenne) {
 		this.antenne = antenne;
 		antenne.setManager(this);
+		this.antenneReadyForSynchro(antenne);
 	}
 	public void tick() {
 		for (Balise b : this.bals) {
@@ -28,6 +29,7 @@ public class Manager {
 		for (Satellite s : this.sats) {
 			s.tick();
 		}
+		antenne.tick();
 	}
 
 	/**
@@ -47,6 +49,12 @@ public class Manager {
 	public void baliseSynchroDone(Balise b) {
 		for (Satellite s : this.sats) {			
 			s.unregisterListener(SatelliteMoved.class, b);
+		}
+	}
+
+	public void antenneReadyForSynchro(Antenne a) {
+		for (Satellite s : this.sats) {
+			s.registerListener(SatelliteMoved.class, a);
 		}
 	}
 

@@ -20,7 +20,7 @@ public class Balise extends ElementMobile implements SatelitteMoveListener{
 	 */
 	protected void readSensors() {
 		if(this.profondeur() > 0 && !this.memoryFull()) {
-			this.dataSize++;
+			this.setDataSize(this.getDataSize()+1);
 		}
 	}
 
@@ -30,7 +30,7 @@ public class Balise extends ElementMobile implements SatelitteMoveListener{
 	 */
 	public void tick() {
 		if (this.memoryFull()) {
-			Deplacement redescendre = new Redescendre(this.deplacement(), this.profondeur());
+			Deplacement redescendre = new Redescendre(this.deplacement());
 			Deplacement deplSynchro = new DeplSynchronisation(redescendre);
 			Deplacement nextDepl = new MonteSurfacePourSynchro(deplSynchro);
 			this.setDeplacement(nextDepl);
@@ -43,7 +43,7 @@ public class Balise extends ElementMobile implements SatelitteMoveListener{
 
 	@Override
 	public void whenSatelitteMoved(SatelliteMoved arg) {
-		DeplacementBalise dp = (DeplacementBalise) this.depl;
+		DeplacementBalise dp = (DeplacementBalise) this.deplacement();
 		dp.whenSatelitteMoved(arg, this);
 	}
 }

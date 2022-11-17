@@ -106,12 +106,13 @@ public class Simulation {
 	}
 
 	public GrAntenne addAntenne() {
-		Antenne antenne = new Antenne(1000000000); //TODO
-		antenne.setPosition(new Point((int)((this.worldDim.width)*0.8), (int)(this.worldDim.height * 0.4)));
+		Antenne antenne = new Antenne(1000000000);
+		Point position = new Point((int)((this.worldDim.width)*0.8), (int)(this.worldDim.height * 0.28));
+		antenne.setPosition(position);
 		manager.addAntenne(antenne);
 		GrAntenne grAntenne = new GrAntenne(this.ether);
 		grAntenne.setModel(antenne);
-		grAntenne.setLocation(new Point((int)((this.worldDim.width)*0.8), (int)(this.worldDim.height * 0.28)));
+		grAntenne.setLocation(position);
 		return grAntenne;
 	}
 
@@ -142,8 +143,8 @@ public class Simulation {
 		earth.setDimension(new Dimension((int)((this.worldDim.width)*0.3), this.worldDim.height / 2));
 		earth.setLocation(new Point((int)((this.worldDim.width)*0.7), this.worldDim.height / 2));
 
-		this.addSatelitte(sky, 100000, new Point(10, 50), 2);
-		this.addSatelitte(sky, 100000, new Point(100, 10), 1);
+		this.addSatelitte(sky, 100000, new Point(10, 50), 1);
+		this.addSatelitte(sky, 100000, new Point(100, 10), 2);
 		this.addSatelitte(sky, 100000, new Point(400, 90), 3);
 		this.addSatelitte(sky, 100000, new Point(500, 140), 4);
 		this.addSatelitte(sky, 100000, new Point(600, 10), 1);

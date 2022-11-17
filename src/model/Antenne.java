@@ -1,20 +1,27 @@
 package model;
 
 
-import java.awt.*;
+import events.SatelitteMoveListener;
+import events.SatelliteMoved;
 
-public class Antenne extends ElementMobile{
-	private Point position;
+
+public class Antenne extends ElementMobile implements SatelitteMoveListener {
+
+	private SynchronisationAntenneSatellite synchro;
 
 	public Antenne(int memorySize) {
 		super(memorySize);
+		synchro = new SynchronisationAntenneSatellite();
 	}
 
-	protected void addData(int data) {
-		this.dataSize += data;
+	@Override
+	public void whenSatelitteMoved(SatelliteMoved arg) {
+		synchro.whenSatelitteMoved(arg, this);
 	}
 
-	public void setPosition(Point position) {
-		this.position = position;
+
+	@Override
+	public void bouge(){
+		synchro.bouge(this);
 	}
 }

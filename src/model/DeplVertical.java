@@ -6,9 +6,9 @@ import java.awt.Point;
  * Gestion des déplacements verticaux des éléments mobiles
  */
 public class DeplVertical extends DeplacementBalise  {
-	Integer min;
-	Integer max;
-	Boolean monte = false;
+	private final Integer min;
+	private final Integer max;
+	private Boolean monte = false;
 
 	public DeplVertical(Integer min, Integer max) {
 		super (null);

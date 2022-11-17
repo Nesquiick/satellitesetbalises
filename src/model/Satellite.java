@@ -9,7 +9,7 @@ public class Satellite extends ElementMobile {
 	}
 
 	protected void addData(int data) {
-		this.dataSize += data;
+		this.setDataSize(this.getDataSize()+data);
 	}
 	
 	public void bouge () {

@@ -6,9 +6,9 @@ import java.awt.Point;
  * Déplacements horizontaux des satellites en fonction d'une vitesse donnée
  */
 public class DeplSatellite extends Deplacement {
-	Integer start;
-	Integer end;
-	int vitesse;
+	private final Integer start;
+	private final Integer end;
+	private final int vitesse;
 
 	public DeplSatellite(Integer start, Integer end, int vitesse) {
 		this.start = start;
