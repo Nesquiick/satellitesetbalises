@@ -33,12 +33,16 @@ Des diagrammes UML de l'architecture ont été réalisé afin d'apporter une mei
 
 ###Ajout de l'antenne
 Nous avons décidé d'ajouter à la simulation une antenne qui récupères les données des satellites (quand ils en ont)
-quand ils passent au-dessus de celle-ci.
+quand ils passent au-dessus de celle-ci. Nous avons décidé que notre antenne récupère des données à chaque fois qu'un 
+satellite passe avec des données (même s'il n'est pas plein) afin d'éviter des pertes de données vis-à-vis des balises.
+
 
 ###Privatisation des variables d'instances des différentes classes
 Afin de sécuriser le code pour éviter une mauvaise utilisation par la suite des variables, nous avons décidé de rendre 
 les variables private avec des accesseurs.
 
-//TODO
-vider la memoire du satellite
+
+##TODO
+classe element qui sera element mobile ou antenne
 améliorations algorithmiques et de conception objet
+vider donner en haut balise
