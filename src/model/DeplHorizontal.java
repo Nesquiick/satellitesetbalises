@@ -6,9 +6,9 @@ import java.awt.Point;
  * Gestion des déplacements horizontaux des éléments mobiles
  */
 public class DeplHorizontal extends DeplacementBalise {
-	Integer start;
-	Integer end;
-	Boolean fromStartToEnd = true;
+	private final Integer start;
+	private final Integer end;
+	private Boolean fromStartToEnd = true;
 
 	public DeplHorizontal(Integer start, Integer end) {
 		super (null);

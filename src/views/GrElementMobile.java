@@ -2,15 +2,16 @@ package views;
 
 
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import events.PositionChangeListener;
-import events.PositionChanged;
-import events.SynchroEvent;
-import events.SynchroEventListener;
+import events.*;
 import model.ElementMobile;
 import nicellipse.component.NiRectangle;
 
-public class GrElementMobile extends NiRectangle implements PositionChangeListener, SynchroEventListener  {
+import javax.swing.*;
+
+public class GrElementMobile extends NiRectangle implements PositionChangeListener, SynchroEventListener, SynchroSatelliteEventListener  {
 	private static final long serialVersionUID = -5422724191168577346L;
 	ElementMobile model;
 	GrEther ether;
@@ -29,6 +30,7 @@ public class GrElementMobile extends NiRectangle implements PositionChangeListen
 		this.model = model;
 		model.registerListener(PositionChanged.class, this);
 		model.registerListener(SynchroEvent.class, this);
+		model.registerListener(SynchroSatelliteEvent.class, this);
 		this.setLocation(this.model.getPosition());
 		this.repaint();		
 	}
@@ -55,5 +57,16 @@ public class GrElementMobile extends NiRectangle implements PositionChangeListen
 	public void paint(Graphics g) {
 		super.paint(g);
 	}
-	
+
+	@Override
+	public void whenStartSynchro(SynchroSatelliteEvent arg) {
+		duringSynchro = true;
+		this.ether.startSync(this);
+	}
+
+	@Override
+	public void whenStopSynchro(SynchroSatelliteEvent arg) {
+		duringSynchro = false;
+		this.ether.stopSync(this);
+	}
 }

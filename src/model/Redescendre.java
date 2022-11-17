@@ -4,9 +4,9 @@ import java.awt.Point;
 import java.util.Random;
 
 public class Redescendre extends DeplacementBalise {
-	int profondeur;
+	private final int profondeur;
 	
-	public Redescendre(Deplacement next, int profondeur) {
+	public Redescendre(Deplacement next) {
 		super (next);
 		Random r = new Random();
 		this.profondeur = r.nextInt(270);
