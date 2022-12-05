@@ -41,8 +41,11 @@ satellite passe avec des données (même s'il n'est pas plein) afin d'éviter de
 Afin de sécuriser le code pour éviter une mauvaise utilisation par la suite des variables, nous avons décidé de rendre 
 les variables private avec des accesseurs.
 
+###Transfère des données des balises
+Tel que le code était fait, les données des balises étaient transférées aux satellites dès que la mémoire était pleine 
+sans attendre que la balise ne soit remontée à la surface. Maintenant, on attend que la balise soit remontée pour
+transférer les données
 
-##TODO
-classe element qui sera element mobile ou antenne
-améliorations algorithmiques et de conception objet
-vider donner en haut balise
+###Création d'une nouvelle classe abstraite
+Comme nous avons ajouté une antenne, nous avons décidé de créer une classe abstraite Element dont dépend maintenant 
+ElementMobile et qui est hérité par la classe Antenne.
