@@ -86,7 +86,7 @@ public class Simulation {
 	}
 
 	public void addBalise(JPanel sea, int memorySize, Point startPos, Deplacement depl) {
-		Balise bal = new Balise(memorySize);
+		Balise bal = new Balise(memorySize, depl);
 		bal.setPosition(startPos);
 		bal.setDeplacement(depl);
 		manager.addBalise(bal);

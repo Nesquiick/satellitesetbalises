@@ -4,9 +4,12 @@ import events.SatelitteMoveListener;
 import events.SatelliteMoved;
 
 public class Balise extends ElementMobile implements SatelitteMoveListener{
+
+	private Deplacement typeDeplacement;
 	
-	public Balise(int memorySize) {
+	public Balise(int memorySize, Deplacement deplacement) {
 		super(memorySize);
+		this.typeDeplacement = deplacement;
 	}
 	
 	public int profondeur() { 
@@ -30,11 +33,10 @@ public class Balise extends ElementMobile implements SatelitteMoveListener{
 	 */
 	public void tick() {
 		if (this.memoryFull()) {
-			Deplacement redescendre = new Redescendre(this.deplacement());
+			Deplacement redescendre = new Redescendre(getTypeDeplacement());
 			Deplacement deplSynchro = new DeplSynchronisation(redescendre);
 			Deplacement nextDepl = new MonteSurfacePourSynchro(deplSynchro);
 			this.setDeplacement(nextDepl);
-			this.resetData();
 		} else {
 			this.readSensors();
 		}
@@ -45,5 +47,13 @@ public class Balise extends ElementMobile implements SatelitteMoveListener{
 	public void whenSatelitteMoved(SatelliteMoved arg) {
 		DeplacementBalise dp = (DeplacementBalise) this.deplacement();
 		dp.whenSatelitteMoved(arg, this);
+	}
+
+	public Deplacement getTypeDeplacement() {
+		return typeDeplacement;
+	}
+
+	public void setTypeDeplacement(Deplacement typeDeplacement) {
+		this.typeDeplacement = typeDeplacement;
 	}
 }
