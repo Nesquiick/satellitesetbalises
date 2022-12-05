@@ -5,12 +5,12 @@ import events.SatelitteMoveListener;
 import events.SatelliteMoved;
 
 
-public class Antenne extends ElementMobile implements SatelitteMoveListener {
+public class Antenne extends Element implements SatelitteMoveListener {
 
-	private SynchronisationAntenneSatellite synchro;
+	private final SynchronisationAntenneSatellite synchro;
 
-	public Antenne(int memorySize) {
-		super(memorySize);
+	public Antenne() {
+		super();
 		synchro = new SynchronisationAntenneSatellite();
 	}
 
@@ -21,7 +21,7 @@ public class Antenne extends ElementMobile implements SatelitteMoveListener {
 
 
 	@Override
-	public void bouge(){
-		synchro.bouge(this);
+	public void action(){
+		synchro.action(this);
 	}
 }

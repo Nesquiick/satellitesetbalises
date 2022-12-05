@@ -106,7 +106,7 @@ public class Simulation {
 	}
 
 	public GrAntenne addAntenne() {
-		Antenne antenne = new Antenne(0);
+		Antenne antenne = new Antenne();
 		Point position = new Point((int)((this.worldDim.width)*0.8), (int)(this.worldDim.height * 0.28));
 		antenne.setPosition(position);
 		manager.addAntenne(antenne);

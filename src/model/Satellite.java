@@ -12,8 +12,8 @@ public class Satellite extends ElementMobile {
 		this.setDataSize(this.getDataSize()+data);
 	}
 	
-	public void bouge () {
-		super.bouge();
+	public void action () {
+		super.action();
 		this.send(new SatelliteMoved(this));
 	}
 }

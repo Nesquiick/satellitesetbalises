@@ -11,7 +11,7 @@ import events.PositionChanged;
 import nicellipse.component.NiImage;
 import nicellipse.component.NiLabel;
 
-public class GrSatellite extends GrElementMobile {
+public class GrSatellite extends GrElement {
 	private static final long serialVersionUID = -8534493300853878234L;
 	private final NiLabel label = new NiLabel("0");
 

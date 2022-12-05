@@ -8,9 +8,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import nicellipse.component.NiImage;
-import nicellipse.component.NiRectangle;
 
-public class GrAntenne extends GrElementMobile {
+public class GrAntenne extends GrElement {
     private static final long serialVersionUID = -8672390241177685075L;
 
     public GrAntenne(GrEther ether) {

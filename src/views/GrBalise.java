@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 
 import nicellipse.component.NiImage;
 
-public class GrBalise extends GrElementMobile {
+public class GrBalise extends GrElement {
 	private static final long serialVersionUID = -8672390241177685075L;
 
 	public GrBalise(GrEther ether) {

@@ -3,7 +3,7 @@ package model;
 import events.SatelliteMoved;
 import events.SynchroSatelliteEvent;
 
-public class SynchronisationAntenneSatellite extends Deplacement{
+public class SynchronisationAntenneSatellite{
 
     private int synchroTime;
     private Satellite synchro;
@@ -31,8 +31,7 @@ public class SynchronisationAntenneSatellite extends Deplacement{
         }
     }
 
-    @Override
-    public void bouge(ElementMobile target) {
+    public void action(Element target) {
         if (this.synchro == null) return;
         this.synchroTime--;
         if (synchroTime <= 0) {
