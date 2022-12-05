@@ -21,7 +21,7 @@ Cette modification pouvait aussi régler le bogue précédemment corrigé.
 Nous avons ajouté un bouton afin de pouvoir pauser l'animation
 
 ###Affichage des données
-Nous avons ajouté un label afin d'afficher la quantité de données contenue par les satellites
+Nous avons ajouté un label afin d'afficher la quantité de données contenue par les satellites et les balises.
 
 ###Javadoc
 De nombreux commentaires ont été ajoutés afin de permettre une meilleure compréhension des méthodes 
